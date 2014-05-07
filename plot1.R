@@ -2,8 +2,9 @@ hp<-read.csv("household_power_consumption.txt",header=TRUE,sep=";",na.strings="?
 hpc=hp                                                                            ### rename it to cut down on chance of having to reload 
 hpc$Date=as.Date(hpc$Date,"%d/%m/%Y")                                             ### put date into date format
 hpco=subset(hpc,Date=="2007-02-01"|Date=="2007-02-02")                            ### get just the dates we need    
+png("plot1.png")
 hist(hpco$Global_active_power,col="red",ylab="Frequency",xlab="Global Active Power (kilowatts)",main="Global Active Power") ##create histogram
-png(filename="plot1")                        ## create the png file
+dev.off()
 
 
 
